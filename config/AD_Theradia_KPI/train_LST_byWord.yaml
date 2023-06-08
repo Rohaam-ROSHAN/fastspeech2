@@ -1,0 +1,24 @@
+path:
+  ckpt_path: "./output/ckpt/AD_Theradia_KPI_byWord"
+  log_path: "./output/log/AD_Theradia_KPI_byWord"
+  result_path: "./output/result/AD_Theradia_KPI_byWord"
+  train_csv_path: "train.txt" # "train_AD_KPI.txt" # should be in preprocessed_data
+  val_csv_path: "val.txt" # "val_AD_KPI.txt"
+optimizer:
+  batch_size: 32
+  betas: [0.9, 0.98]
+  eps: 0.000000001
+  weight_decay: 0.0
+  grad_clip_thresh: 1.0
+  grad_acc_step: 1
+  warm_up_step: 12000
+  anneal_steps: [60000, 90000, 120000]
+  anneal_rate: 0.3
+step:
+  total_step: 170000
+  log_step: 100
+  synth_step: 1000
+  val_step: 5000
+  save_step: 5000
+output:
+  wav: False

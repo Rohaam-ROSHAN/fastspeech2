@@ -1,0 +1,37 @@
+dataset: "M_AILABS"
+
+path:
+  corpus_path: "./data/ALL_AD"
+  lexicon_path: "lexicon/mailabs-lexicon.txt"
+  raw_path: "./raw_data/M_AILABS"
+  preprocessed_path: "./preprocessed_data/M_AILABS"
+  csv_path: "./data"
+  au_path: "./data/ALL_AU_20230317"
+  output_syn_path: "output/audio"
+
+preprocessing:
+  val_size: 512
+  text:
+    text_cleaners: ["basic_cleaners"]
+    language: "fr"
+  audio:
+    sampling_rate: 22050
+    max_wav_value: 32768.0
+  stft:
+    filter_length: 1024
+    hop_length: 256
+    win_length: 1024
+  mel:
+    n_mel_channels: 80
+    mel_fmin: 0
+    mel_fmax: 8000 # please set to 8000 for HiFi-GAN vocoder, set to null for MelGAN vocoder
+  pitch:
+    feature: "phoneme_level" # support 'phoneme_level' or 'frame_level'
+    normalization: True
+  energy:
+    feature: "phoneme_level" # support 'phoneme_level' or 'frame_level'
+    normalization: True
+  trim_silence: False
+  au:
+    sampling_rate: 60
+    n_units: 37

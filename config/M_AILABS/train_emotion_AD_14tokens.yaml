@@ -1,0 +1,24 @@
+path:
+  ckpt_path: "./output/ckpt/M_AILABS_emotion_AD_14tokens"
+  log_path: "./output/log/M_AILABS_emotion_AD_14tokens"
+  result_path: "./output/result/M_AILABS_emotion_AD_14tokens"
+  train_csv_path: "train.txt"
+  val_csv_path: "val.txt"
+optimizer:
+  batch_size: 32
+  betas: [0.9, 0.98]
+  eps: 0.000000001
+  weight_decay: 0.0
+  grad_clip_thresh: 1.0
+  grad_acc_step: 1
+  warm_up_step: 12000
+  anneal_steps: [60000, 90000, 120000]
+  anneal_rate: 0.3
+step:
+  total_step: 60000 # RR , it was 150000
+  log_step: 100
+  synth_step: 1000
+  val_step: 5000
+  save_step: 15000 # RR ,  50000
+output:
+  wav: False

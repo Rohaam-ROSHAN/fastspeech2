@@ -1,0 +1,95 @@
+transformer:
+  encoder_layer: 4
+  encoder_head: 2
+  encoder_hidden: 256
+  decoder_layer: 6
+  decoder_head: 2
+  decoder_hidden: 256
+  conv_filter_size: 1024
+  conv_kernel_size: [9, 1]
+  encoder_dropout: 0.2
+  decoder_dropout: 0.2
+
+visual_decoder:
+  decoder_layer: 2
+  decoder_head: 2
+  decoder_hidden: 256
+  conv_filter_size: 1024
+  conv_kernel_size: [9, 1]
+  decoder_dropout: 0.2
+
+variance_predictor:
+  filter_size: 256
+  kernel_size: 3
+  dropout: 0.5
+
+variance_embedding:
+  pitch_quantization: "linear" # support 'linear' or 'log', 'log' is allowed only if the pitch values are not normalized during preprocessing
+  energy_quantization: "linear" # support 'linear' or 'log', 'log' is allowed only if the energy values are not normalized during preprocessing
+  n_bins: 256
+
+gst:
+  use_gst: True
+  conv_filters: [32, 32, 64, 64, 128, 128]
+  ref_enc_size: [3, 3]
+  ref_enc_strides: [2, 2]
+  ref_enc_pad: [1, 1]
+  gru_hidden: 128
+  token_size: 256
+  n_style_token: 14
+  attn_head: 1
+  dropout: 0.1
+
+lst:
+  use_lst: False
+  token_size: 256
+  n_style_token: 64
+  attn_head: 1
+  dropout: 0.1
+
+bert:
+  use_bert: False
+
+multi_speaker: True
+
+compute_phon_prediction: True
+
+visual_prediction: 
+  compute_visual_prediction: True
+  extension: "AU"
+  visual_postnet: True
+  separate_visual_decoder: True
+
+use_variance_predictor:
+  pitch: True
+  energy: True
+
+use_variance_embeddings: 
+  pitch: True
+  energy: True
+
+max_seq_len: 2000
+maximum_phoneme_duration:
+  limit: False
+  threshold: 12 # number of frames
+
+vocoder:
+  model: "WAVEGLOW" # support 'HiFi-GAN', 'MelGAN', 'WAVEGLOW'
+  speaker: "universal" # support  'LJSpeech', 'universal'
+
+bias_vector:
+  f0: ""
+  coef_f0: 1
+  energy: ""
+  coef_energy: 1.0
+  duration: ""
+  coef_duration: 1.0
+  pause: ""
+  liaison: ""
+  spectral_tilt: ""
+  coef_spectral_tilt: 1.0
+  
+  bias_vector_name: 'bias_vector_by_layer_FSE_mds90_center_vowels_test_balance'
+  # Params order [duration, F0, F1, F2, F3, Spectral Tilt, Energy, Relative Position, Pfitzinger, Center of Gravity, Spectral Balance]
+  value_by_param: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  layer_by_param: [11, 17, 16, 11, 11, 17, 6, 11, 7, 17, 17]

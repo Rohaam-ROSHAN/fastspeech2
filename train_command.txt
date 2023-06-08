@@ -1,0 +1,15 @@
+python train.py -p config/M_AILABS/preprocess.yaml -m config/M_AILABS/model_emotion_AD.yaml -t config/M_AILABS/train_emotion_AD_14tokens.yaml
+
+
+python preprocess.py config/M_AILABS/preprocess.yaml
+
+
+==
+args
+
+
+"args": ["-p", "config/M_AILABS/preprocess.yaml", "-m", "config/M_AILABS/model_emotion_AD.yaml", "-t", "config/M_AILABS/train_emotion_AD_14tokens.yaml"],
+
+
+"args": ["config/M_AILABS/preprocess.yaml"],
+
