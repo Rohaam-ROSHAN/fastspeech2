@@ -117,12 +117,14 @@ TextGrid0/
 *.tar
 *.zip
 img/
+stft.py
 
 # data, checkpoint, and models
 demo/
 data/
 data00/
 data0/
+data_backup/
 raw_data/
 preprocessed_data/
 output/
