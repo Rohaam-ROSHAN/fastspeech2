@@ -137,3 +137,15 @@ preprocessed_data/
 save_before_BERT/
 save_bias_vector/
 log_*.txt
+
+martin_textgrid/
+TextGrid0/
+*.zip
+img/
+data/
+data0/
+data00/
+data_backup/
+sftf.py
+
+
